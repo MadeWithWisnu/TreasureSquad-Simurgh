@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TreasureAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+212a4ecf2430ef2b3e9bd24460502cdd9369ac64")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94492e5efeb202444912fe146b6b8578118ba06d")]
 [assembly: System.Reflection.AssemblyProductAttribute("TreasureAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TreasureAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
