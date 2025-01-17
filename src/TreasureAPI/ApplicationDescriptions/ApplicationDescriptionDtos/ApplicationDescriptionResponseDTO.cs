@@ -1,5 +1,4 @@
-﻿
-namespace TreasureAPI;
+﻿namespace TreasureAPI.ApplicationDescriptions;
 
 public class ApplicationDescriptionResponseDTO
 {
