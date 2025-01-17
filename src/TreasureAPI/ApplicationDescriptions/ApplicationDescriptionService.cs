@@ -12,20 +12,22 @@ public class ApplicationDescriptionService(IApplicationDescriptionRepository rep
 		List<ApplicationDescriptionResponseDTO> dtos = new List<ApplicationDescriptionResponseDTO>();
 		foreach (MstApplicationDescription d in models)
 		{
-			ApplicationDescriptionResponseDTO dto = new ApplicationDescriptionResponseDTO { 
+			ApplicationDescriptionResponseDTO dto = new ApplicationDescriptionResponseDTO
+			{
 				Id = d.Id,
 				Name = d.Name,
 				Status = (bool)d.Status,
 			};
 			dtos.Add(dto);
 		}
-		
+
 		return dtos;
 	}
 
 	public int Insert(ApplicationDescriptionInsertDTO dto)
 	{
-		MstApplicationDescription model = new MstApplicationDescription {
+		MstApplicationDescription model = new MstApplicationDescription
+		{
 			Name = dto.Name,
 			Status = dto.Status,
 			Deleted = false
