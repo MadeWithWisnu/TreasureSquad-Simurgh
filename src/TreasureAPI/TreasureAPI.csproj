@@ -17,9 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controlllers\" />
-    <Folder Include="DTOs\Village\" />
-    <Folder Include="Services\" />
     <Folder Include="Validations\" />
   </ItemGroup>
 
