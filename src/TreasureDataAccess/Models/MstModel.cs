@@ -17,9 +17,9 @@ public partial class MstModel
 
     public int? VarietyId { get; set; }
 
-    public string? Status { get; set; }
+    public bool? Status { get; set; }
 
-    public string? Deleted { get; set; }
+    public bool? Deleted { get; set; }
 
     public virtual MstBrand? Brand { get; set; }
 

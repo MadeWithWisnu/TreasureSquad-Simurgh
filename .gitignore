@@ -1,6 +1,4 @@
-appsettings.json
-appsettings.Development.json
-DbContextConnectionConfig.cs
+
 
 # Build results
 [Dd]ebug/
@@ -24,6 +22,6 @@ project.lock.json
 *.pyc
 .fake
 /.vs
-/src/MidasDataAccess/DbContextConnectionConfig.cs
+
 /.gitignore
-/src/MidasDataAccess/DbContextConnectionConfig.cs
+

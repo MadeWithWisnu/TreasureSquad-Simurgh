@@ -9,9 +9,9 @@ public partial class MstBank
 
     public string? Name { get; set; }
 
-    public string? Status { get; set; }
+    public bool? Status { get; set; }
 
-    public string? Deleted { get; set; }
+    public bool? Deleted { get; set; }
 
     public virtual ICollection<Partner> Partners { get; set; } = new List<Partner>();
 }

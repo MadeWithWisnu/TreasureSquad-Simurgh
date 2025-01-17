@@ -13,9 +13,9 @@ public partial class MstSubdistrict
 
     public int? DistrictId { get; set; }
 
-    public string? Status { get; set; }
+    public bool? Status { get; set; }
 
-    public string? Deleted { get; set; }
+    public bool? Deleted { get; set; }
 
     public virtual MstDistrict? District { get; set; }
 
