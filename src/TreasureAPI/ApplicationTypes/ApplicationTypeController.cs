@@ -12,8 +12,15 @@ public class ApplicationTypeController(ApplicationTypeService service) : Control
   [HttpPost("list")]
   public ActionResult<List<ApplicationTypeResponseDTO>> GetList(int id = 0, string name = "", bool? status = true)
   {
-    List<ApplicationTypeResponseDTO> dtos = _service.GetList(id, name, status);
-    return Ok(dtos);
+    try
+    {
+      List<ApplicationTypeResponseDTO> dtos = _service.GetList(id, name, status);
+      return Ok(dtos);
+    }
+    catch (System.Exception)
+    {
+      return BadRequest();
+    }
   }
 
   [HttpPost("insert")]
@@ -33,14 +40,28 @@ public class ApplicationTypeController(ApplicationTypeService service) : Control
   [HttpPost("update")]
   public ActionResult<List<ApplicationTypeResponseDTO>> Update(ApplicationTypeUpdateDTO dto)
   {
-    int res = _service.Update(dto);
-    return Ok(res);
+    try
+    {
+      int res = _service.Update(dto);
+      return Ok(res);
+    }
+    catch (System.Exception)
+    {
+      return BadRequest();
+    }
   }
 
   [HttpPost("delete")]
   public ActionResult<List<ApplicationTypeResponseDTO>> Delete(int id)
   {
-    int res = _service.Delete(id);
-    return Ok(res);
+    try
+    {
+      int res = _service.Delete(id);
+      return Ok(res);
+    }
+    catch (System.Exception)
+    {
+      return BadRequest();
+    }
   }
 }
