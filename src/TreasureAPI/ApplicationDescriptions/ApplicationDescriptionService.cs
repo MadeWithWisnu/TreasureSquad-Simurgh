@@ -27,7 +27,7 @@ public class ApplicationDescriptionService(IApplicationDescriptionRepository rep
 	{
 		MstApplicationDescription model = new MstApplicationDescription {
 			Name = dto.Name,
-			Status = dto.Status.ToString(),
+			Status = dto.Status,
 			Deleted = false
 		};
 		return _repository.Insert(model);
