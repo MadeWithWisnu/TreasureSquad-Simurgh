@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TreasureDataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94492e5efeb202444912fe146b6b8578118ba06d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d98c3934ffb1b2e278216ddf1d5fe670d224189f")]
 [assembly: System.Reflection.AssemblyProductAttribute("TreasureDataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TreasureDataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

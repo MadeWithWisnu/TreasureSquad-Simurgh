@@ -13,14 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TreasureDataAccess\TreasureDataAccess.csproj" />
+    <ProjectReference Include="..\TreasureBussiness\TreasureBussiness.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\" />
     <Folder Include="Controlllers\" />
-    <Folder Include="DTOs\District\" />
-    <Folder Include="DTOs\SubDistrict\" />
     <Folder Include="DTOs\Village\" />
     <Folder Include="Services\" />
     <Folder Include="Validations\" />

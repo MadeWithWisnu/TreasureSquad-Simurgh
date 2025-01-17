@@ -1134,6 +1134,19 @@
           }
         }
       },
+      "TreasureBussiness/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "TreasureDataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TreasureBussiness.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TreasureBussiness.dll": {}
+        }
+      },
       "TreasureDataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -3278,6 +3291,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "TreasureBussiness/1.0.0": {
+      "type": "project",
+      "path": "../TreasureBussiness/TreasureBussiness.csproj",
+      "msbuildProject": "../TreasureBussiness/TreasureBussiness.csproj"
+    },
     "TreasureDataAccess/1.0.0": {
       "type": "project",
       "path": "../TreasureDataAccess/TreasureDataAccess.csproj",
@@ -3289,7 +3307,7 @@
       "Swashbuckle.AspNetCore >= 6.*",
       "Swashbuckle.AspNetCore.Filters >= 8.0.2",
       "Swashbuckle.AspNetCore.SwaggerGen >= 7.2.0",
-      "TreasureDataAccess >= 1.0.0"
+      "TreasureBussiness >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3319,8 +3337,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\1929\\Music\\TreasureSquad-Simurgh\\src\\TreasureDataAccess\\TreasureDataAccess.csproj": {
-              "projectPath": "C:\\Users\\1929\\Music\\TreasureSquad-Simurgh\\src\\TreasureDataAccess\\TreasureDataAccess.csproj"
+            "C:\\Users\\1929\\Music\\TreasureSquad-Simurgh\\src\\TreasureBussiness\\TreasureBussiness.csproj": {
+              "projectPath": "C:\\Users\\1929\\Music\\TreasureSquad-Simurgh\\src\\TreasureBussiness\\TreasureBussiness.csproj"
             }
           }
         }

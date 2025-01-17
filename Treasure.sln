@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreasureDataAccess", "src\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreasureAPI", "src\TreasureAPI\TreasureAPI.csproj", "{76881F8A-00C7-42EA-BCD9-C36FA2761320}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreasureBussiness", "src\TreasureBussiness\TreasureBussiness.csproj", "{273845A0-6593-426B-9CBA-C9759490EE89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +28,14 @@ Global
 		{76881F8A-00C7-42EA-BCD9-C36FA2761320}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76881F8A-00C7-42EA-BCD9-C36FA2761320}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76881F8A-00C7-42EA-BCD9-C36FA2761320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{273845A0-6593-426B-9CBA-C9759490EE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{273845A0-6593-426B-9CBA-C9759490EE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{273845A0-6593-426B-9CBA-C9759490EE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{273845A0-6593-426B-9CBA-C9759490EE89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D2DF620C-1AF6-4AE4-98E5-72B8BA039F91} = {D7AD7406-2329-417D-9F35-C0CE41AA5A18}
 		{76881F8A-00C7-42EA-BCD9-C36FA2761320} = {D7AD7406-2329-417D-9F35-C0CE41AA5A18}
+		{273845A0-6593-426B-9CBA-C9759490EE89} = {D7AD7406-2329-417D-9F35-C0CE41AA5A18}
 	EndGlobalSection
 EndGlobal

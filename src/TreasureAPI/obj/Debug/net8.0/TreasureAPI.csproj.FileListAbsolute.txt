@@ -83,3 +83,5 @@ C:\Users\1929\Music\TreasureSquad-Simurgh\src\TreasureAPI\obj\Debug\net8.0\refin
 C:\Users\1929\Music\TreasureSquad-Simurgh\src\TreasureAPI\obj\Debug\net8.0\TreasureAPI.pdb
 C:\Users\1929\Music\TreasureSquad-Simurgh\src\TreasureAPI\obj\Debug\net8.0\TreasureAPI.genruntimeconfig.cache
 C:\Users\1929\Music\TreasureSquad-Simurgh\src\TreasureAPI\obj\Debug\net8.0\ref\TreasureAPI.dll
+C:\Users\1929\Music\TreasureSquad-Simurgh\src\TreasureAPI\bin\Debug\net8.0\TreasureBussiness.dll
+C:\Users\1929\Music\TreasureSquad-Simurgh\src\TreasureAPI\bin\Debug\net8.0\TreasureBussiness.pdb
