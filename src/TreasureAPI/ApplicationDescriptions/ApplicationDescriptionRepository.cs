@@ -16,7 +16,12 @@ namespace TreasureAPI.ApplicationDescriptions
 		public List<MstApplicationDescription> GetList(int id, string name, bool? status)
 		{
 			return _dbContext.MstApplicationDescriptions
-				.Where(data => (id == 0 || data.Id == id) || (data.Name ?? "").Contains(name) || (status == null || data.Status == (bool)status))
+				.Where(data =>
+					(id == 0 || data.Id == id)
+					&& (data.Name ?? "").Contains(name)
+					&& (status == null || data.Status == (bool)status)
+					&& data.Deleted == false
+				)
 				.ToList();
 		}
 
@@ -34,11 +39,11 @@ namespace TreasureAPI.ApplicationDescriptions
 			return mstApplicationDescription.Id;
 		}
 
-		public int Delete(int id)
-		{
-			_dbContext.Remove(id);
-			_dbContext.SaveChanges();
-			return id;
-		}
+		// public int Delete(int id)
+		// {
+		// 	_dbContext.Remove(id);
+		// 	_dbContext.SaveChanges();
+		// 	return id;
+		// }
 	}
 }
