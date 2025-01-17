@@ -17,9 +17,9 @@ public partial class MstVillage
 
     public int? SubdistrictId { get; set; }
 
-    public byte? Status { get; set; }
+    public string? Status { get; set; }
 
-    public byte? Deleted { get; set; }
+    public string? Deleted { get; set; }
 
     public virtual ICollection<DataLead> DataLeadDomicilleVillages { get; set; } = new List<DataLead>();
 

@@ -11,9 +11,9 @@ public partial class MstDistrict
 
     public int? ProvinceId { get; set; }
 
-    public byte? Status { get; set; }
+    public string? Status { get; set; }
 
-    public byte? Deleted { get; set; }
+    public string? Deleted { get; set; }
 
     public virtual ICollection<MstSubdistrict> MstSubdistricts { get; set; } = new List<MstSubdistrict>();
 

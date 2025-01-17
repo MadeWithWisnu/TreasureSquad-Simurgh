@@ -9,9 +9,9 @@ public partial class MstProvince
 
     public string? Name { get; set; }
 
-    public byte? Status { get; set; }
+    public string? Status { get; set; }
 
-    public byte? Deleted { get; set; }
+    public string? Deleted { get; set; }
 
     public virtual ICollection<MstDistrict> MstDistricts { get; set; } = new List<MstDistrict>();
 

@@ -43,9 +43,9 @@ public partial class Partner
 
     public int? BankId { get; set; }
 
-    public byte? Status { get; set; }
+    public string? Status { get; set; }
 
-    public byte? Deleted { get; set; }
+    public string? Deleted { get; set; }
 
     public virtual MstBank? Bank { get; set; }
 

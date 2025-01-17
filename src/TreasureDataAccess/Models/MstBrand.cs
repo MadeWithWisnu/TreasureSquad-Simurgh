@@ -13,9 +13,9 @@ public partial class MstBrand
 
     public int? CategoryId { get; set; }
 
-    public byte? Status { get; set; }
+    public string? Status { get; set; }
 
-    public byte? Deleted { get; set; }
+    public string? Deleted { get; set; }
 
     public virtual MstCategory? Category { get; set; }
 

@@ -9,9 +9,9 @@ public partial class MstIdentity
 
     public string? Name { get; set; }
 
-    public byte? Status { get; set; }
+    public string? Status { get; set; }
 
-    public byte? Deleted { get; set; }
+    public string? Deleted { get; set; }
 
     public virtual ICollection<DataLead> DataLeads { get; set; } = new List<DataLead>();
 

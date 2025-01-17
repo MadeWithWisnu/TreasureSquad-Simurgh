@@ -55,15 +55,15 @@ public partial class SimurghContext : DbContext
 
     public virtual DbSet<Partner> Partners { get; set; }
 
-//     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-// #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-//         => optionsBuilder.UseSqlServer("Server=0.tcp.ap.ngrok.io,11908;Database=simurgh;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=True");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=0.tcp.ap.ngrok.io,11908;Database=simurgh;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<DataLead>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__data_lea__3213E83FA200E8C9");
+            entity.HasKey(e => e.Id).HasName("PK__data_lea__3213E83F46C961EF");
 
             entity.ToTable("data_leads");
 
@@ -86,7 +86,9 @@ public partial class SimurghContext : DbContext
             entity.Property(e => e.DebtorsType)
                 .HasMaxLength(255)
                 .HasColumnName("debtors_type");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.DomicileAddress)
                 .HasMaxLength(255)
                 .HasColumnName("domicile_address");
@@ -121,7 +123,9 @@ public partial class SimurghContext : DbContext
             entity.Property(e => e.Reference)
                 .HasMaxLength(255)
                 .HasColumnName("reference");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
             entity.Property(e => e.SurveyorId).HasColumnName("surveyor_id");
             entity.Property(e => e.TaxYear).HasColumnName("tax_year");
             entity.Property(e => e.Telephone)
@@ -180,49 +184,61 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstApplicationDescription>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_appl__3213E83F1C56137D");
+            entity.HasKey(e => e.Id).HasName("PK__mst_appl__3213E83FB819315D");
 
             entity.ToTable("mst_application_description");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
         });
 
         modelBuilder.Entity<MstApplicationType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_appl__3213E83FE2311434");
+            entity.HasKey(e => e.Id).HasName("PK__mst_appl__3213E83F400F7FD6");
 
             entity.ToTable("mst_application_type");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
         });
 
         modelBuilder.Entity<MstBank>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_bank__3213E83F9859B3F7");
+            entity.HasKey(e => e.Id).HasName("PK__mst_bank__3213E83F919798F3");
 
             entity.ToTable("mst_bank");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
         });
 
         modelBuilder.Entity<MstBranch>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_bran__3213E83FB0A3A958");
+            entity.HasKey(e => e.Id).HasName("PK__mst_bran__3213E83F0F11E7A8");
 
             entity.ToTable("mst_branch");
 
@@ -236,8 +252,12 @@ public partial class SimurghContext : DbContext
             entity.Property(e => e.CustodianCode)
                 .HasMaxLength(255)
                 .HasColumnName("custodian_code");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
-            entity.Property(e => e.LocalTime).HasColumnName("local_time");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
+            entity.Property(e => e.LocalTime)
+                .HasMaxLength(50)
+                .HasColumnName("local_time");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
@@ -261,7 +281,9 @@ public partial class SimurghContext : DbContext
                 .HasColumnName("plafon_petty_cash");
             entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.StartDate).HasColumnName("start_date");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
             entity.Property(e => e.Structure)
                 .HasMaxLength(255)
                 .HasColumnName("structure");
@@ -278,20 +300,24 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstBrand>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_bran__3213E83F3359D0B2");
+            entity.HasKey(e => e.Id).HasName("PK__mst_bran__3213E83F243FDFC9");
 
             entity.ToTable("mst_brand");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.ManufacturerCountry)
                 .HasMaxLength(255)
                 .HasColumnName("manufacturer_country");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
 
             entity.HasOne(d => d.Category).WithMany(p => p.MstBrands)
                 .HasForeignKey(d => d.CategoryId)
@@ -300,21 +326,25 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstBrandType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_bran__3213E83FD2B978FD");
+            entity.HasKey(e => e.Id).HasName("PK__mst_bran__3213E83F99BB59BF");
 
             entity.ToTable("mst_brand_type");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BrandId).HasColumnName("brand_id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.ManufacturerCountry)
                 .HasMaxLength(255)
                 .HasColumnName("manufacturer_country");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
             entity.Property(e => e.VarietyId).HasColumnName("variety_id");
 
             entity.HasOne(d => d.Brand).WithMany(p => p.MstBrandTypes)
@@ -332,31 +362,39 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstCategory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_cate__3213E83F5327E347");
+            entity.HasKey(e => e.Id).HasName("PK__mst_cate__3213E83FA155EE00");
 
             entity.ToTable("mst_category");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
         });
 
         modelBuilder.Entity<MstDistrict>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_dist__3213E83FBC2C7933");
+            entity.HasKey(e => e.Id).HasName("PK__mst_dist__3213E83FDBB9C082");
 
             entity.ToTable("mst_district");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
             entity.Property(e => e.ProvinceId).HasColumnName("province_id");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
 
             entity.HasOne(d => d.Province).WithMany(p => p.MstDistricts)
                 .HasForeignKey(d => d.ProvinceId)
@@ -365,21 +403,25 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstIdentity>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_iden__3213E83FE23F5E31");
+            entity.HasKey(e => e.Id).HasName("PK__mst_iden__3213E83FC5E9AF43");
 
             entity.ToTable("mst_identity");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
         });
 
         modelBuilder.Entity<MstModel>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_mode__3213E83F3A6915EE");
+            entity.HasKey(e => e.Id).HasName("PK__mst_mode__3213E83FD5DE1BA8");
 
             entity.ToTable("mst_model");
 
@@ -387,11 +429,15 @@ public partial class SimurghContext : DbContext
             entity.Property(e => e.BrandId).HasColumnName("brand_id");
             entity.Property(e => e.BrandTypeId).HasColumnName("brand_type_id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
             entity.Property(e => e.VarietyId).HasColumnName("variety_id");
 
             entity.HasOne(d => d.Brand).WithMany(p => p.MstModels)
@@ -413,12 +459,14 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstPaymentOfTerm>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_paym__3213E83FB190E910");
+            entity.HasKey(e => e.Id).HasName("PK__mst_paym__3213E83FDF82D70D");
 
             entity.ToTable("mst_payment_of_term");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.EffectiveRate).HasColumnName("effective_rate");
             entity.Property(e => e.EndDate).HasColumnName("end_date");
             entity.Property(e => e.FinalPrincipalPayment)
@@ -432,7 +480,9 @@ public partial class SimurghContext : DbContext
                 .HasColumnName("name");
             entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.StartDate).HasColumnName("start_date");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
             entity.Property(e => e.Tenure).HasColumnName("tenure");
 
             entity.HasOne(d => d.Product).WithMany(p => p.MstPaymentOfTerms)
@@ -442,46 +492,58 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstProduct>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_prod__3213E83FCD0A4DF8");
+            entity.HasKey(e => e.Id).HasName("PK__mst_prod__3213E83F2AAE3C35");
 
             entity.ToTable("mst_product");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
         });
 
         modelBuilder.Entity<MstProvince>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_prov__3213E83FB15E64B6");
+            entity.HasKey(e => e.Id).HasName("PK__mst_prov__3213E83F0C9CF607");
 
             entity.ToTable("mst_province");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
         });
 
         modelBuilder.Entity<MstSubdistrict>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_subd__3213E83FF3E4EC0B");
+            entity.HasKey(e => e.Id).HasName("PK__mst_subd__3213E83FD4402C25");
 
             entity.ToTable("mst_subdistrict");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.DistrictId).HasColumnName("district_id");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
             entity.Property(e => e.ProvinceId).HasColumnName("province_id");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
 
             entity.HasOne(d => d.District).WithMany(p => p.MstSubdistricts)
                 .HasForeignKey(d => d.DistrictId)
@@ -494,12 +556,14 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstSurveyor>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_surv__3213E83F6D878B8C");
+            entity.HasKey(e => e.Id).HasName("PK__mst_surv__3213E83FE64A5E38");
 
             entity.ToTable("mst_surveyor");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(255)
                 .HasColumnName("first_name");
@@ -511,7 +575,9 @@ public partial class SimurghContext : DbContext
                 .HasColumnName("partner_id");
             entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.StartDate).HasColumnName("start_date");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
             entity.Property(e => e.SurveyorDate).HasColumnName("surveyor_date");
 
             entity.HasOne(d => d.Partner).WithMany(p => p.MstSurveyors)
@@ -525,31 +591,39 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_type__3213E83FD24B8FCD");
+            entity.HasKey(e => e.Id).HasName("PK__mst_type__3213E83F47D136F6");
 
             entity.ToTable("mst_type");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
         });
 
         modelBuilder.Entity<MstVariety>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_vari__3213E83FCAC8D808");
+            entity.HasKey(e => e.Id).HasName("PK__mst_vari__3213E83FD6C47674");
 
             entity.ToTable("mst_variety");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
 
             entity.HasOne(d => d.Category).WithMany(p => p.MstVarieties)
                 .HasForeignKey(d => d.CategoryId)
@@ -558,12 +632,14 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<MstVillage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__mst_vill__3213E83F4448010B");
+            entity.HasKey(e => e.Id).HasName("PK__mst_vill__3213E83FE41C36DE");
 
             entity.ToTable("mst_village");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.DistrictId).HasColumnName("district_id");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
@@ -572,7 +648,9 @@ public partial class SimurghContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("postal_code");
             entity.Property(e => e.ProvinceId).HasColumnName("province_id");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
             entity.Property(e => e.SubdistrictId).HasColumnName("subdistrict_id");
 
             entity.HasOne(d => d.District).WithMany(p => p.MstVillages)
@@ -590,7 +668,7 @@ public partial class SimurghContext : DbContext
 
         modelBuilder.Entity<Partner>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__partner__3213E83F310A9A82");
+            entity.HasKey(e => e.Id).HasName("PK__partner__3213E83F229DA125");
 
             entity.ToTable("partner");
 
@@ -612,7 +690,9 @@ public partial class SimurghContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("birth_place");
             entity.Property(e => e.BranchId).HasColumnName("branch_id");
-            entity.Property(e => e.Deleted).HasColumnName("deleted");
+            entity.Property(e => e.Deleted)
+                .HasMaxLength(50)
+                .HasColumnName("deleted");
             entity.Property(e => e.DomicileAddress)
                 .HasMaxLength(255)
                 .HasColumnName("domicile_address");
@@ -631,7 +711,9 @@ public partial class SimurghContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("phone_number");
             entity.Property(e => e.ProductId).HasColumnName("product_id");
-            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
             entity.Property(e => e.TelephoneNumber)
                 .HasMaxLength(255)
                 .HasColumnName("telephone_number");
