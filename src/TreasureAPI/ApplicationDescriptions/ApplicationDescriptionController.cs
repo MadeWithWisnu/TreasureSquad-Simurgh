@@ -11,28 +11,56 @@ public class ApplicationDescriptionController(ApplicationDescriptionService serv
 	[HttpPost("list")]
 	public ActionResult<List<ApplicationDescriptionResponseDTO>> GetList(int id = 0, string name = "", bool? status = true)
 	{
-		List<ApplicationDescriptionResponseDTO> dtos = _service.GetList(id, name, status);
-		return Ok(dtos);
+		try
+		{
+			List<ApplicationDescriptionResponseDTO> dtos = _service.GetList(id, name, status);
+			return Ok(dtos);
+		}
+		catch (System.Exception)
+		{
+			return BadRequest();
+		}
 	}
 
 	[HttpPost("insert")]
 	public ActionResult<List<ApplicationDescriptionResponseDTO>> Insert(ApplicationDescriptionInsertDTO dto)
 	{
-		int res = _service.Insert(dto);
-		return Ok(res);
+		try
+		{
+			int res = _service.Insert(dto);
+			return Ok(res);
+		}
+		catch (System.Exception)
+		{
+			return BadRequest();
+		}
 	}
 
 	[HttpPost("update")]
 	public ActionResult<List<ApplicationDescriptionResponseDTO>> Update(ApplicationDescriptionUpdateDTO dto)
 	{
-		int res = _service.Update(dto);
-		return Ok(res);
+		try
+		{
+			int res = _service.Update(dto);
+			return Ok(res);
+		}
+		catch (System.Exception)
+		{
+			return BadRequest();
+		}
 	}
 
 	[HttpPost("delete")]
 	public ActionResult<List<ApplicationDescriptionResponseDTO>> Delete(int id)
 	{
-		int res = _service.Delete(id);
-		return Ok(res);
+		try
+		{
+			int res = _service.Delete(id);
+			return Ok(res);
+		}
+		catch (System.Exception)
+		{
+			return BadRequest();
+		}
 	}
 }

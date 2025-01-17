@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace TreasureAPI.ApplicationTypes;
 
@@ -18,8 +19,15 @@ public class ApplicationTypeController(ApplicationTypeService service) : Control
   [HttpPost("insert")]
   public ActionResult<List<ApplicationTypeResponseDTO>> Insert(ApplicationTypeInsertDTO dto)
   {
-    int res = _service.Insert(dto);
-    return Ok(res);
+    try
+    {
+      int res = _service.Insert(dto);
+      return Ok(res);
+    }
+    catch (System.Exception)
+    {
+      return BadRequest();
+    }
   }
 
   [HttpPost("update")]
